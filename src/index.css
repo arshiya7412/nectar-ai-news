@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Georgia:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Georgia", "Times New Roman", "Merriweather", serif;
+  --font-sans: "Roboto", sans-serif;
+  
+  --color-et-pink: #F9E5E1;
+  --color-trust-blue: #1E3A8A;
+  --color-editorial-bg: #FAF8F5;
+  --color-editorial-ink: #1F2937;
+  --color-body-gray: #374151;
+  --color-caption-gray: #6B7280;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-editorial-bg text-editorial-ink;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* Newspaper Typography Classes */
+.masthead {
+  font-size: clamp(3rem, 8vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  border-top: 3px solid #000;
+  border-bottom: 3px solid #000;
+  padding: 1rem 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: var(--font-serif);
+}
+
+.drop-cap::first-letter {
+  float: left;
+  font-size: 4.5rem;
+  line-height: 0.85;
+  font-weight: 900;
+  color: var(--color-trust-blue);
+  margin-right: 0.15rem;
+  font-family: var(--font-serif);
+}
+
+.newspaper-columns {
+  column-count: 1;
+  column-gap: 2rem;
+  column-rule: 1px solid #e5e7eb;
+  text-align: justify;
+}
+@media (min-width: 768px) {
+  .newspaper-columns {
+    column-count: 2;
+  }
+}
+
+.section-divider {
+  border-top: 3px double var(--color-trust-blue);
+  margin: 2rem 0;
+}
+
+.dotted-divider {
+  border-bottom: 1px dotted #d1d5db;
+  margin: 1rem 0;
+}
+
+.main-headline {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.2;
+  font-family: var(--font-serif);
+  color: #111827;
+}
+
+.body-text {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  text-align: justify;
+  color: var(--color-body-gray);
+  font-family: var(--font-serif);
+}
+
+.glass-card {
+  @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-xl;
+}
+
+.ken-burns {
+  animation: kenburns 20s infinite alternate;
+}
+
+@keyframes kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+.ticker-scroll {
+  animation: ticker 180s linear infinite;
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Suppress Vite error overlay */
+vite-error-overlay {
+  display: none !important;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

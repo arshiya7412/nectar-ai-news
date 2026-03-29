@@ -1,0 +1,9 @@
+{
+  "name": "NECTAR AI News by arshi",
+  "description": "AI-native personalized news platform with vernacular support, story tracking, and fake news detection.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
